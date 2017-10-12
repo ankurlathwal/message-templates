@@ -18,7 +18,15 @@ $("#update").click(function (){
     for(var i=0;i<variables.length;i++){
         if(message.indexOf("greeting")>=0){            
             // use company time zone to decide greeting - good evening/morning/afternoon 
-            var hrs = moment().tz(company.timezone).format('H'); // used moment library to work with time zones.
+            // if company data doesn't have timezone key, use the user's default timezone
+            var timezone;
+            if(company.hasOwnProperty("timezone")){
+                timezone = company.timezone;
+            }
+            else{
+                timezone = moment.tz.guess();
+            }
+            var hrs = moment().tz(timezone).format('H'); // used moment library to work with time zones.
             if(hrs<12){
                 message = message.replace("$greeting$","Good Morning");
             }
@@ -50,7 +58,7 @@ $("#update").click(function (){
         }
     }
 
-//    console.log(moment().tz("US/Pacific").format('H'));
+  //  console.log(moment.tz.guess());
 
     $("#messageInput").html(message);
     
