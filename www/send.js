@@ -1,4 +1,8 @@
+// Logic that sends the message.
+// Queries form data and uses it to match with server data (json) to create templated messages.
+
 var message;
+// when the user clicks update button, the textarea is updated based on selected guest, company and template.
 $("#update").click(function (){
     
     var selGuest = $("#selectGuest option:selected").val();
@@ -10,11 +14,11 @@ $("#update").click(function (){
     var company = companies[selCompany];
     var guest = guests[selGuest];
 
-    
-
+    // loop through the template structure variables to compose a message.
     for(var i=0;i<variables.length;i++){
         if(message.indexOf("greeting")>=0){            
-            var hrs = moment().tz(company.timezone).format('H');
+            // use company time zone to decide greeting - good evening/morning/afternoon 
+            var hrs = moment().tz(company.timezone).format('H'); // used moment library to work with time zones.
             if(hrs<12){
                 message = message.replace("$greeting$","Good Morning");
             }
@@ -26,6 +30,7 @@ $("#update").click(function (){
             }
         }
 
+        // use timestamp data to find guest checkin and checkout dates. Used in "BookingInfo" template.
         if(variables[i]==="endTimestamp"){
             message = message.replace("$endTimestamp$", moment(guest.reservation.endTimestamp*1000).format("ddd, MMM D YYYY"));
         }
@@ -36,6 +41,7 @@ $("#update").click(function (){
             message = message.replace("$" +variables[i]+"$",guest.reservation[variables[i]] );
         }
 
+        // for rest of the variables in templates.
         if(guest.hasOwnProperty(variables[i])){
             message = message.replace("$" +variables[i]+"$",guest[variables[i]] );
         }

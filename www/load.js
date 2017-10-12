@@ -1,3 +1,6 @@
+// JavaScript that loads the JSON data on the page.
+// Uses ajax to fetch data from server and populate the form on the page.
+
 var guests,companies,templates;
 
 $(document).ready(function() {  
