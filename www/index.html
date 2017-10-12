@@ -5,25 +5,37 @@
     </head>
     <body>
       <div class="container">
-      Hello Message-Templater
-
-      <div class="form-group" id="dataForm">
-          <label>Select Guest:</label>
-          <select class="form-control" id="selectGuest">
-          </select>
-          <label>Select Company:</label>
-          <select class="form-control" id="selectCompany">
-          </select>
-          <label>Select Template:</label>
-          <select class="form-control" id="selectTemplate">
-          </select>
-          <button id="send" role="submit" type="submit" class="btn btn-success">Send</button>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2 col-xs-12">
+            <h1>Message Templates</h1>
+            <h3>Send messages to your selected from a template or compose your own message in the text area below</h3>
+      
+            <div class="form-group" id="dataForm">
+                <label>Select Guest:</label>
+                <select class="form-control" id="selectGuest">
+                </select>
+                <label>Select Company:</label>
+                <select class="form-control" id="selectCompany">
+                </select>
+                <label>Select Template:</label>
+                <select class="form-control" id="selectTemplate">
+                </select>
+                <textarea class="form-control" rows="5" id="messageInput"></textarea>
+                <button id="update" class="btn btn-success">Update</button>
+                <button id="send" class="btn btn-success">Send</button>
+            </div>
+            <p id="messageSent"></p>
+        </div>
+      </div>  
       </div>
       
 
       <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
       <script src="load.js"></script> 
-      <script src="send.js"></script>  
+      <script src="send.js"></script> 
+      <script src="moment.js"></script>  
+      <script src="moment-timezone.js"></script> 
+      <script src="moment-timezone-with-data.js"></script>   
     </body>
     </html>

@@ -2,14 +2,14 @@
     {
         "id" :1,
         "type": "BookingInfo",
-        "message" : "Hi. This is a confirmation of your booking at $company$.<br/>Here are the details-<br/>Guest Name: $firstName$ $lastName$<br/>Check in Date :$checkIn$<br/>Check out Date :$checkOut$",
-        "variables" : ["company","firstName","lastName","checkIn","checkOut"]    
+        "message" : "Hi. This is a confirmation of your booking at $company$.<br>Here are the details-<br>Guest Name: $firstName$ $lastName$<br>Check in Date :$startTimestamp$<br>Check out Date :$endTimestamp$",
+        "variables" : ["company","firstName","lastName","startTimestamp","endTimestamp"]    
     },
     {
         "id" : 2,
         "type": "Welcome",
-        "message" : "$greeting$ $firstName$. Welcome to $company$. Your room no. $room$ is ready. Please pickup the keys from the front desk. We hope you have a pleasant stay.",
-        "variables" : ["startTimestamp","firstName","company","room"]                  
+        "message" : "$greeting$ $firstName$. Welcome to $company$. Your room no. $roomNumber$ is ready. Please pickup the keys from the front desk. We hope you have a pleasant stay.",
+        "variables" : ["greeting","firstName","company","roomNumber"]                  
     },
 
     {
@@ -22,11 +22,6 @@
         "id" :4,
         "type": "GoodBye",
         "message" : "$greeting$ $firstName$. We hope you had a pleasant stay at $company$. We look forward to you visiting again in near future.",
-        "variables" : ["endTimestamp","firstName","company"]    
+        "variables" : ["greeting","firstName","company"]    
     }
-
-    
-
-
-
 ]
